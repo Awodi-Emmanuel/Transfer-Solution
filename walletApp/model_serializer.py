@@ -62,10 +62,8 @@ class DepositSerializer(serializers.Serializer):
     def save(self):
         user = self.context["request"].user
         # wallet = Wallet.objects.get(user=user)
-        if Wallet.objects.filter(user=user).exist():
-            wallet = Wallet.objects.get(user=user)
-        else:
-            wallet = 'wallet not found'
+        wallet = Wallet.objects.filter(user=user).first()
+        print(wallet)
         
             
         data = self.validated_data
