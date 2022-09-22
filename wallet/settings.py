@@ -128,3 +128,17 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+REST_FRAMEWORK = {
+    # "DEFAULT_PAGINATION_CLASS": "core.pagination.MetadataPagination",
+    # "PAGE_SIZE": 100,
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+    'rest_framework.authentication.SessionAuthentication',
+    'rest_framework.authentication.TokenAuthentication',
+),
+    'DEFAULT_PERMISSION_CLASSES': (
+    'rest_framework.permissions.IsAuthenticated',
+)
+}
+
+PAYSTACK_SECRET_KEY = "sk_test_dc7fc2fd68cae43e98647cd1e9fbe0f1ef105a60"
